@@ -1,8 +1,14 @@
 class Game 
   def initialize(name)
     @name = name
-    @player_1 = Player.new('Player 1')
-    @player_2 = Player.new('Player 2')
+    puts "Player 1 please enter a name: "
+    print "> "
+    @player1_name = $stdin.gets.chomp
+    puts "Player 2 please enter a name: "
+    print "> "
+    @player2_name = $stdin.gets.chomp
+    @player_1 = Player.new(@player1_name)
+    @player_2 = Player.new(@player2_name)
   end
 
   def start
@@ -11,7 +17,7 @@ class Game
   end
 
   def show_lives_remaining
-    puts "P1: #{@player_1.lives}/3 vs. P2: #{@player_2.lives}/3"
+    puts "#{@player_1.name}: #{@player_1.lives}/3 vs. #{@player_2.name}: #{@player_2.lives}/3"
   end
 
   def winner(player)
